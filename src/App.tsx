@@ -17,11 +17,19 @@ function App() {
     'More',
     'Of',
     'These',
+    'Bro',
+    'What',
+    'In',
+    'Tarnation',
   ]);
 
   return (
-    <>
+    <div className="main">
       <h1>Job Notebook</h1>
+      <div className="pages">
+        <button>tech</button>
+        <button>notes</button>
+      </div>
       <div className="cols">
         <div className="techColumn">
           {technologies.map((el) => (
@@ -30,10 +38,10 @@ function App() {
         </div>
 
         <div className="noteColumn">
-          <div>hello right</div>
+          <div>will uwu pwease wendew me some fwiends?</div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
