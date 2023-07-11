@@ -1,31 +1,16 @@
 import { useState } from 'react';
-import './Techs.css';
+import './Notes.css';
 
-function Techs() {
+function Notes() {
   const [technologies, setTechnologies] = useState([
-    'Javascript',
-    'Typescript',
-    'Prometheus',
-    'Grafana',
-    'Hello',
-    'World',
-    'I',
-    'Love',
-    'Shrek',
-    'How',
-    'Many',
-    'More',
-    'Of',
-    'These',
-    'Bro',
-    'What',
-    'In',
-    'Tarnation',
+    'Jobs',
+    'Jobs',
+    'Another Job',
+    'More jobs'
   ]);
 
   return (
     <div className="main">
-      {/* <h1>Job Notebook</h1> */}
       <div className="cols">
         <div className="techColumn">
           {technologies.map((el) => (
@@ -34,11 +19,11 @@ function Techs() {
         </div>
 
         <div className="noteColumn">
-          <div>will uwu pwease wendew me some fwiends?</div>
+          <div>NOTES</div>
         </div>
       </div>
     </div>
   );
 }
 
-export default Techs;
+export default Notes;
