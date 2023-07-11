@@ -1,11 +1,21 @@
+import { fileURLToPath } from 'url';
 import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import express, { Request, Response, NextFunction } from 'express';
 import jobNotebookController from './controllers/JobNotebookController';
 
+const PORT = 3000;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../public')));
+
+app.get('/getUsers', jobNotebookController.test, (req, res) => {
+  console.log('inside get route');
+  res.status(200).json('it worked');
+});
 
 app.post(
   '/auth',
@@ -31,4 +41,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server listening on port: ${PORT}...`);
+});
+
+export default app;
