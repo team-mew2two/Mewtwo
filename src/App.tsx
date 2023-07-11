@@ -1,36 +1,22 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import { SideNav } from './components/SideNav'
-import { TopNav } from './components/TopNav'
-import { Notes } from './pages/Notes'
-// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { Home } from './components/Home';
+import Techs from './pages/Techs/Techs';
+import Notes from './pages/Notes/Notes';
+import './App.css';
+import { TopNav } from './components/TopNav';
+import { Title } from './components/Title';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div className="App">
-        <div className="App-header">
-          <TopNav />
-        </div>
-        <div className="ContentWrapper">
-          <SideNav />
-          <Notes />
-          {/* <div>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </Router>
-        </div> */}
-        </div>
-      </div >
-    </>
-  )
+    <Router>
+      <Title />
+      <TopNav />
+      <Routes>
+        <Route path="/tech" element={<Techs />} />
+        <Route path="/notes" element={<Notes />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
