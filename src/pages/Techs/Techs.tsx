@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SubjectBlock from '../../components/SubjectBlock/SubjectBlock';
+import SubjectBar from '../../components/SubjectBar/SubjectBar';
 import './Techs.css';
 
 function Techs() {
@@ -28,12 +28,9 @@ function Techs() {
     <div className="main">
       <div className="cols">
         <div className="techColumn">
-          {technologies.map((el, i) => (
-            <SubjectBlock
-              key={i}
-              subject={el}
-            />
-          ))}
+          <SubjectBar
+            technologies={technologies}
+          />
         </div>
 
         <div className="noteColumn">
