@@ -25,19 +25,17 @@ function Techs() {
   ]);
 
   return (
-    <div className="main">
-      <div className="cols">
-        <div className="techColumn">
-          <SubjectBar
-            technologies={technologies}
-          />
+    <>
+      <div className="techMain">
+        <div className="subjectColumn">
+          <SubjectBar subjectArray={technologies} />
         </div>
 
         <div className="noteColumn">
           <div>will uwu pwease wendew me some fwiends?</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

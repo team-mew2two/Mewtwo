@@ -2,14 +2,14 @@ import SubjectBlock from '../SubjectBlock/SubjectBlock';
 import './SubjectBar.css';
 
 interface SubjectBarProps {
-  technologies: string[];
+  subjectArray: string[];
 }
 
 function SubjectBar(props: SubjectBarProps) {
-  const { technologies } = props;
+  const { subjectArray } = props;
   return (
     <>
-      {technologies.map((el, i) => (
+      {subjectArray.map((el, i) => (
         <SubjectBlock key={i} subject={el} />
       ))}
     </>
