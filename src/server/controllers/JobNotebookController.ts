@@ -6,6 +6,7 @@ const jobNotebookController = {
   loginUser: (req: Request, res: Response, next: NextFunction) => {},
   verifyUser: (req: Request, res: Response, next: NextFunction) => {},
   test: (req: Request, res: Response, next: NextFunction) => {},
+  updateNotes: (req: Request, res: Response, next: NextFunction) => {},
 };
 
 jobNotebookController.test = async (req: Request, res: Response, next: NextFunction) => {
@@ -84,6 +85,26 @@ jobNotebookController.loginUser = async (req: Request, res: Response, next: Next
     const allInfo = await db.query(queryObj.text);
     //const results = await allInfo.json();
     //res.locals.currentUser = results.rows[0];
+  } catch (err) {
+    console.error(err);
+    return next(err);
+  }
+};
+
+jobNotebookController.updateNotes = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { notes } = req.body;
+    const queryObj = {
+      text: `UPDATE table_name
+      SET notestab = ${notes},
+      WHERE condition
+      RETURNING * | output_expression AS output_name; 
+      `, //returned output needs to be clarified
+      values: [req.query.id],
+    };
+    const update = await db.query(queryObj.text);
+    // const results = await update.json();
+    // res.locals.currentUser = results.rows[0];
   } catch (err) {
     console.error(err);
     return next(err);
