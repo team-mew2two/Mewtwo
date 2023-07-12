@@ -96,6 +96,7 @@ jobNotebookController.loginUser = async (req: Request, res: Response, next: Next
   }
 };
 
+// Adds technology, exlcludes pro's and cons and resources as those are added on later by the user
 jobNotebookController.addTech = async (req: Request, res: Response, next: NextFunction) => {
   console.log(req.body);
   const { id, user_id, techname } = req.body;
