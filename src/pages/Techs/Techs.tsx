@@ -35,8 +35,8 @@ function Techs() {
       <div className="techMain">
         <div className="subjectColumn">
           <AddSubject 
-            technologies={technologies}
-            setTechnologies={setTechnologies}
+            subject={technologies}
+            setSubject={setTechnologies}
           />
           <SubjectBar subjectArray={technologies} />
         </div>

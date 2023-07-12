@@ -2,12 +2,12 @@ import './AddSubject.css';
 import React, { useState } from 'react';
 
 interface AddSubjectProps {
-  technologies: string[];
-  setTechnologies: React.Dispatch<React.SetStateAction<string[]>>;
+  subject: string[];
+  setSubject: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 function AddSubject(props: AddSubjectProps) {
-  const { technologies, setTechnologies } = props;
+  const { subject, setSubject } = props;
   const [currentlyTyping, setCurrentlyTyping] = useState(false);
   const [currentText, setCurrentText] = useState('');
   
@@ -22,7 +22,7 @@ function AddSubject(props: AddSubjectProps) {
       return;
     }
   
-    setTechnologies([currentText, ...technologies])
+    setSubject([currentText, ...subject])
     // create new note page, and make post request
     // to create a new row in sql db
 
