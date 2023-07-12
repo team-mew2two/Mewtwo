@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SubjectBar from '../../components/SubjectBar/SubjectBar';
+import AddSubject from '../../components/AddSubject/AddSubject';
 import './Techs.css';
 
 function Techs() {
@@ -28,6 +29,7 @@ function Techs() {
     <>
       <div className="techMain">
         <div className="subjectColumn">
+          <AddSubject />
           <SubjectBar subjectArray={technologies} />
         </div>
 
