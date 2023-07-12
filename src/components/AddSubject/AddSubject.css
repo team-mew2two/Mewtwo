@@ -4,7 +4,7 @@
   padding: 14px;
   margin: 8px;
   border: 1px solid black;
-  min-height: 18px;
+  max-height: 18px;
   border-radius: 5px;
   box-shadow: 5px 3px 3px black;
   justify-content: center;

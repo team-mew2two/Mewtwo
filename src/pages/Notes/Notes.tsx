@@ -1,4 +1,5 @@
 import SubjectBar from '../../components/SubjectBar/SubjectBar';
+import AddSubject from '../../components/AddSubject/AddSubject';
 import { useState } from 'react';
 import './Notes.css';
 
@@ -14,6 +15,10 @@ function Notes() {
     <>
       <div className="noteMain">
         <div className="subjectColumn">
+        <AddSubject 
+            subject={companies}
+            setSubject={setCompanies}
+          />
           <SubjectBar subjectArray={companies} />
         </div>
 
