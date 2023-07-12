@@ -1,15 +1,15 @@
 import Techs from './pages/Techs/Techs';
 import Notes from './pages/Notes/Notes';
 import './App.css';
-import { TopNav } from './components/TopNav';
-import { Title } from './components/Title';
+import NavBar from './components/NavBar/NavBar';
+import { Title } from './components/Title/Title';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <Router>
       <Title />
-      <TopNav />
+      <NavBar />
       <Routes>
         <Route path="/tech" element={<Techs />} />
         <Route path="/notes" element={<Notes />} />

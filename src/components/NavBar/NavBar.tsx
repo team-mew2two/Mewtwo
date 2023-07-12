@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import './NavBar.css';
 
-export function TopNav() {
+function NavBar() {
   const navigate = useNavigate();
 
   const handleRedirect = (path: string) => {
@@ -14,3 +15,5 @@ export function TopNav() {
     </div>
   );
 }
+
+export default NavBar;
