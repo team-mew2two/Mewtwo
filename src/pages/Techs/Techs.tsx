@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SubjectBar from '../../components/SubjectBar/SubjectBar';
 import './Techs.css';
 
 function Techs() {
@@ -24,24 +25,17 @@ function Techs() {
   ]);
 
   return (
-    <div className="main">
-      <h1>Job Notebook</h1>
-      <div className="pages">
-        <button>tech</button>
-        <button>notes</button>
-      </div>
-      <div className="cols">
-        <div className="techColumn">
-          {technologies.map((el) => (
-            <div className="techs">{el}</div>
-          ))}
+    <>
+      <div className="techMain">
+        <div className="subjectColumn">
+          <SubjectBar subjectArray={technologies} />
         </div>
 
         <div className="noteColumn">
           <div>will uwu pwease wendew me some fwiends?</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
