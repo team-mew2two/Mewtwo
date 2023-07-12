@@ -1,7 +1,5 @@
 import Techs from './pages/Techs/Techs';
 import Notes from './pages/Notes/Notes';
-import './App.css';
-
 import NavBar from './components/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import LoginBar from './components/Login/LogIn';
