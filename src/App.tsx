@@ -2,7 +2,7 @@ import Techs from './pages/Techs/Techs';
 import Notes from './pages/Notes/Notes';
 import './App.css';
 
-import { TopNav } from './components/TopNav';
+import NavBar from './components/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import LoginBar from './components/Login/LogIn';
 
@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <LoginBar />
-      <TopNav />
+      <NavBar />
       <Routes>
         <Route path="/tech" element={<Techs />} />
         <Route path="/notes" element={<Notes />} />
