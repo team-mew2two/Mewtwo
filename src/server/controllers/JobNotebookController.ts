@@ -1,4 +1,5 @@
 import db from '../models/JobNotebookModel';
+import { QueryResult } from 'pg';
 import { Request, Response, NextFunction } from 'express';
 
 const jobNotebookController = {
@@ -17,7 +18,7 @@ jobNotebookController.test = async (req: Request, res: Response, next: NextFunct
     };
     const response = await db.query(queryObj.text);
 
-    res.locals.users = response;
+    res.locals.users = response.rows;
     console.log(response);
     console.log('----------------------------cdscasdcacacacaca');
     return next();
@@ -69,22 +70,32 @@ jobNotebookController.createUser = async (req: Request, res: Response, next: Nex
 };
 
 jobNotebookController.loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  console.log('This is req.params', req.params);
   try {
-    const { userExists } = res.locals.userExists;
-    const { username } = req.body;
-    if (userExists !== true) throw new Error(userExists);
+    const { id } = req.params;
+    // const { userExists } = res.locals.userExists;
+    // const { username } = req.body;
+    // if (userExists !== true) throw new Error(userExists);
+
     const queryObj = {
       // select all notes inside x that have the user's id
-      text: `SELECT techtabs.*, notetabs.*
+      text: `SELECT techtab.*, notestab.*
       FROM users
-      JOIN techtabs ON users.id = techtabs.user_id
-      JOIN notetabs ON users.id = notetabs.user_id
-      WHERE users.id = $1`,
-      values: [req.query.id],
+      JOIN techtab ON users.id = techtab.user_id
+      JOIN notestab ON users.id = notestab.user_id
+      WHERE users.id = $1`
     };
-    const allInfo = await db.query(queryObj.text);
+    // const values = ['David']
+    // const queryObj = {
+    //   text: `
+    //     select username from users where username=$1
+    //   `,
+    //   // values: ['David']
+    // }
+    const fkdis = await db.query(queryObj.text, [id]);
+    console.log(fkdis['rows']);
     //const results = await allInfo.json();
-    //res.locals.currentUser = results.rows[0];
+    return next();
   } catch (err) {
     console.error(err);
     return next(err);
@@ -111,4 +122,5 @@ jobNotebookController.updateNotes = async (req: Request, res: Response, next: Ne
   }
 };
 
+// when adding a new tech, need to INSERT into notestable
 export default jobNotebookController;

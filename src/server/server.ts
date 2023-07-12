@@ -12,13 +12,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-app.get('/getUsers', jobNotebookController.test, (req, res) => {
+app.get('/api/getUsers', jobNotebookController.test, (req, res) => {
   console.log('inside get route');
-  res.status(200).json('it worked');
+  res.status(200).json(res.locals.users);
 });
 
 app.post(
-  '/auth',
+  '/api/signup',
   jobNotebookController.verifyUser,
   jobNotebookController.createUser,
   (req, res) => {
@@ -26,7 +26,9 @@ app.post(
   }
 );
 
-app.post('/auth', jobNotebookController.verifyUser, jobNotebookController.loginUser, (req, res) => {
+app.get('/api/login/:id', 
+jobNotebookController.loginUser, 
+(req, res) => {
   res.status(200).json(res.locals.currentUser);
 });
 
