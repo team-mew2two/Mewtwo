@@ -1,0 +1,82 @@
+body {
+    background-image: url(https://img.freepik.com/free-photo/smooth-white-stucco-wall_1194-6983.jpg?w=1380&t=st=1689195688~exp=1689196288~hmac=147333579b3a14c8880c5900a89274fe9f581f0193e9e9188ee5da8673654dde)
+}
+
+.noteColumn {
+    border: solid rgb(233, 232, 232);
+    background-color: rgba(231, 227, 220, 0.795);
+    border-radius: .5rem;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.techs {
+    background-color: rgb(233, 232, 232);
+}
+
+.addSubject {
+    background-color: rgb(233, 232, 232);
+}
+
+.box-1 {
+    border-radius: 4px;
+    background-color: #a9cdf0;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    padding: 16px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 36px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+.box-1{
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+      }
+
+.box-2 {
+    border-radius: 4px;
+    background-color: #a9cdf0;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    padding: 16px;
+    width: 220px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 36px;
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  }
+  
+  .box-2{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  box-2:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  box-2:hover{
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  
+  box-2:hover:after {
+    opacity: 1;
+    right: 10px;
+  }

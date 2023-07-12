@@ -3,12 +3,14 @@ import Notes from './pages/Notes/Notes';
 import NavBar from './components/NavBar/NavBar';
 import { Route, Routes } from 'react-router-dom';
 import LoginBar from './components/Login/LogIn';
+// import Title from './components/Title/Title'
 
 
 function App() {
 
   return (
     <>
+      {/* <Title /> */}
       <LoginBar />
       <NavBar />
       <Routes>
