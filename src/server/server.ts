@@ -36,6 +36,10 @@ app.post('/addTech', jobNotebookController.addTech, (req, res) => {
   res.status(200).json(res.locals.newTech);
 });
 
+app.post('/updateTech', jobNotebookController.updateTech, (req, res) => {
+  res.status(200).json(res.locals.updatedTech);
+});
+
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',

@@ -9,6 +9,7 @@ const jobNotebookController = {
   test: (req: Request, res: Response, next: NextFunction) => {},
   updateNotes: (req: Request, res: Response, next: NextFunction) => {},
   addTech: (req: Request, res: Response, next: NextFunction) => {},
+  updateTech: (req: Request, res: Response, next: NextFunction) => {},
 };
 
 jobNotebookController.test = async (req: Request, res: Response, next: NextFunction) => {
@@ -114,13 +115,33 @@ jobNotebookController.addTech = async (req: Request, res: Response, next: NextFu
   }
 };
 
+// Add pros, cons, and resources to techtab table
+jobNotebookController.updateTech = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id, pros, cons, resources } = req.body;
+    const queryObj = {
+      text: `UPDATE techtab
+      SET pros = '${pros}', cons = '${cons}', resources = '${resources}'
+      WHERE id = ${id}
+      RETURNING *;`,
+    };
+    const data = await db.query(queryObj.text);
+    console.log('data', data);
+    res.locals.updatedTech = data.rows;
+    return next();
+  } catch (err) {
+    console.error(err);
+    return next(err);
+  }
+};
+
 jobNotebookController.updateNotes = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { notes } = req.body;
+    const { id, notes } = req.body;
     const queryObj = {
       text: `UPDATE table_name
       SET notestab = ${notes},
-      WHERE condition
+      WHERE id = ${id}
       RETURNING * | output_expression AS output_name; 
       `, //returned output needs to be clarified
       values: [req.query.id],
