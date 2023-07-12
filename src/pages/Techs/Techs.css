@@ -4,8 +4,13 @@
   overflow: hidden;
 }
 
-/* .noteColumn {
-  width: 100%;
-  border: 1px solid red;
-  padding: 1em 3em;
-} */
+.addSubject {
+  display: flex;
+  width: auto;
+  padding: 14px;
+  margin: 8px;
+  border: 1px solid black;
+  min-height: 18px;
+  border-radius: 5px;
+  box-shadow: 5px 3px 3px black;
+}
