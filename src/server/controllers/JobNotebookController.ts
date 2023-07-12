@@ -8,6 +8,7 @@ const jobNotebookController = {
   verifyUser: (req: Request, res: Response, next: NextFunction) => {},
   test: (req: Request, res: Response, next: NextFunction) => {},
   updateNotes: (req: Request, res: Response, next: NextFunction) => {},
+  addTech: (req: Request, res: Response, next: NextFunction) => {},
 };
 
 jobNotebookController.test = async (req: Request, res: Response, next: NextFunction) => {
@@ -83,22 +84,32 @@ jobNotebookController.loginUser = async (req: Request, res: Response, next: Next
       FROM users
       JOIN techtab ON users.id = techtab.user_id
       JOIN notestab ON users.id = notestab.user_id
-      WHERE users.id = $1`
+      WHERE users.id = $1`,
     };
-    // const values = ['David']
-    // const queryObj = {
-    //   text: `
-    //     select username from users where username=$1
-    //   `,
-    //   // values: ['David']
-    // }
     const fkdis = await db.query(queryObj.text, [id]);
     console.log(fkdis['rows']);
-    //const results = await allInfo.json();
+
     return next();
   } catch (err) {
     console.error(err);
     return next(err);
+  }
+};
+
+jobNotebookController.addTech = async (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body);
+  const { id, user_id, techname } = req.body;
+  try {
+    const queryObj = {
+      text: `INSERT INTO techtab (ID, user_id, techname) VALUES(${id}, ${user_id}, '${techname}')`,
+    };
+    const newTech = await db.query(queryObj.text);
+    const result = await db.query(`SELECT * FROM techtab WHERE id=${id}`);
+    console.log(result.rows);
+    res.locals.newTech = result.rows;
+    return next();
+  } catch (err) {
+    console.error(err);
   }
 };
 
