@@ -2,6 +2,7 @@ import { useState } from 'react';
 import SubjectBar from '../../components/SubjectBar/SubjectBar';
 import AddSubject from '../../components/AddSubject/AddSubject';
 import './Techs.css';
+import { setDefaultResultOrder } from 'dns';
 
 function Techs() {
   const [technologies, setTechnologies] = useState([
@@ -25,11 +26,18 @@ function Techs() {
     'Tarnation',
   ]);
 
+  const handleAddSubjectChange = (e: React.FormEvent<HTMLInputElement>)  => {
+    e.preventDefault();
+  }
+
   return (
     <>
       <div className="techMain">
         <div className="subjectColumn">
-          <AddSubject />
+          <AddSubject 
+            technologies={technologies}
+            setTechnologies={setTechnologies}
+          />
           <SubjectBar subjectArray={technologies} />
         </div>
 
