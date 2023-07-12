@@ -1,3 +1,5 @@
+import './SubjectBlock.css';
+
 interface SubjectBlockProps {
   subject: string;
 }
