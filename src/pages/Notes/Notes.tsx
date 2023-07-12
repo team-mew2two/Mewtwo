@@ -1,28 +1,27 @@
+import SubjectBar from '../../components/SubjectBar/SubjectBar';
 import { useState } from 'react';
 import './Notes.css';
 
 function Notes() {
-  const [technologies, setTechnologies] = useState([
+  const [companies, setCompanies] = useState([
     'Jobs',
     'Jobs',
     'Another Job',
-    'More jobs'
+    'More jobs',
   ]);
 
   return (
-    <div className="main">
-      <div className="cols">
-        <div className="techColumn">
-          {technologies.map((el) => (
-            <div className="techs">{el}</div>
-          ))}
+    <>
+      <div className="noteMain">
+        <div className="subjectColumn">
+          <SubjectBar subjectArray={companies} />
         </div>
 
         <div className="noteColumn">
           <div>NOTES</div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

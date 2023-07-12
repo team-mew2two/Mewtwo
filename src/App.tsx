@@ -1,9 +1,11 @@
 import Techs from './pages/Techs/Techs';
 import Notes from './pages/Notes/Notes';
 import './App.css';
+
 import { TopNav } from './components/TopNav';
 import { Route, Routes } from 'react-router-dom';
 import LoginBar from './components/Login/LogIn';
+
 
 function App() {
 
