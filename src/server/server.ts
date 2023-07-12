@@ -26,10 +26,14 @@ app.post(
   }
 );
 
-app.get('/api/login/:id', 
-jobNotebookController.loginUser, 
-(req, res) => {
+// Gets the users information about techtab and notestab
+app.get('/api/login/:id', jobNotebookController.loginUser, (req, res) => {
   res.status(200).json(res.locals.currentUser);
+});
+
+// Adds a technology to the tech tab
+app.post('/addTech', jobNotebookController.addTech, (req, res) => {
+  res.status(200).json(res.locals.newTech);
 });
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
